@@ -23,42 +23,50 @@ public class ShootingSystem : MonoBehaviour
         _waterTank = GetComponent<WaterTank>();
     }
 
+    public void SetTarget(GameObject pTarget)
+    {
+        target = pTarget;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if(beam && _lastProjectiles.Count <= 0)
+        if(target != null)
         {
-            float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position));
-
-            if (angle < fieldOfView)
-            {
-                SpawnProjectiles();
-            }
-        }
-        else if(beam && _lastProjectiles.Count > 0)
-        {
-           float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position));
-
-           if(angle > fieldOfView)
-            {
-                while(_lastProjectiles.Count > 0)
-                {
-                    Destroy(_lastProjectiles[0]);
-                    _lastProjectiles.RemoveAt(0);
-                }
-            }
-        }
-        else
-        {
-            _fireTimer += Time.deltaTime;
-            if(_fireTimer >= fireRate)
+            if (beam && _lastProjectiles.Count <= 0)
             {
                 float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position));
 
                 if (angle < fieldOfView)
                 {
                     SpawnProjectiles();
-                    _fireTimer = 0;
+                }
+            }
+            else if (beam && _lastProjectiles.Count > 0)
+            {
+                float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position));
+
+                if (angle > fieldOfView)
+                {
+                    while (_lastProjectiles.Count > 0)
+                    {
+                        Destroy(_lastProjectiles[0]);
+                        _lastProjectiles.RemoveAt(0);
+                    }
+                }
+            }
+            else
+            {
+                _fireTimer += Time.deltaTime;
+                if (_fireTimer >= fireRate)
+                {
+                    float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position));
+
+                    if (angle < fieldOfView)
+                    {
+                        SpawnProjectiles();
+                        _fireTimer = 0;
+                    }
                 }
             }
         }

@@ -28,6 +28,7 @@ public class NormalProjecttile : BaseProjectile
         {
             _direction = (pTarget.transform.position - pLauncher.transform.position).normalized;
             _fired = true;
+            _damage = pDamage;
         }
     }
 }
