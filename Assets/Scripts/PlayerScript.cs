@@ -93,4 +93,9 @@ public class PlayerScript : MonoBehaviour
     {
         _rigidbody.MovePosition(_rigidbody.position + movement * playerSpeed * Time.fixedDeltaTime);
     }
+
+    public void DoublePlayerSpeed()
+    {
+        playerSpeed *= 2;
+    }
 }

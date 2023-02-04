@@ -21,10 +21,12 @@ public class TurretWaterSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("START");
         shootingSystem = transform.parent.gameObject.GetComponent<ShootingSystem>();
         trackingSystem = transform.parent.gameObject.GetComponent<TrackingSystem>();
         _playerWaterTank = _player.GetComponent<WaterTank>();
         _ownWaterTank = transform.parent.gameObject.GetComponent<WaterTank>();
+        Debug.Log("END: " + _ownWaterTank);
     }
 
     // Update is called once per frame
@@ -32,7 +34,7 @@ public class TurretWaterSystem : MonoBehaviour
     {
         if(_playerInRange)
         {
-            if(_playerWaterTank.GetWaterAmount() > 1)
+            if(_playerWaterTank.GetWaterAmount() > 1 && !_ownWaterTank.ISFULL())
             {
                 float waterToAdd = waterMultiplier * Time.deltaTime;
                 _ownWaterTank.AddWater(waterToAdd);
@@ -83,5 +85,21 @@ public class TurretWaterSystem : MonoBehaviour
     {
         Debug.Log("INDEX: " + _index);
         SuperGameManager.instance.OpenMenu(_index);
+    }
+
+    public void DoubleDamage()
+    {
+        shootingSystem.damage *= 2;
+    }
+
+    public void DoubleFireRate()
+    {
+        shootingSystem.fireRate /= 2;
+        shootingSystem.waterCostBullet /= 2;
+    }
+
+    public void DoubleTurnSpeed()
+    {
+        trackingSystem.speed *= 2;
     }
 }

@@ -44,4 +44,17 @@ public class WaterTank : MonoBehaviour
     {
         return curWaterAmount;
     }
+
+    public bool ISFULL()
+    {
+        return (curWaterAmount >= maxWaterAmount);
+    }
+
+    public void DoubleTank()
+    {
+        beginScale *= 2;
+        waterScale.y *= 2;
+        waterSize.transform.localScale = waterScale;
+        maxWaterAmount *= 2;
+    }
 }

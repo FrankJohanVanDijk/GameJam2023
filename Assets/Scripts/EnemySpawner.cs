@@ -18,6 +18,13 @@ public class EnemySpawner : MonoBehaviour
     float spawnRate = 0.8f;
 
     float _spawnTimer;
+
+    float _startTimer;
+    [SerializeField]
+    float startSpawnTime = 5;
+
+    bool startSpawning = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,12 +36,25 @@ public class EnemySpawner : MonoBehaviour
     {
         transform.RotateAround(_target.position, axis, _rotationSpeed * Time.deltaTime);
 
-        _spawnTimer += Time.deltaTime;
-        if (_spawnTimer >= spawnRate)
+        if(!startSpawning)
         {
-            GameObject enemy = Instantiate(_enemyToSpawn, this.transform.position, Quaternion.Euler(_target.position - transform.position)) as GameObject;
-            enemy.GetComponent<EnemyScript>().SetTarget(_target);
-            _spawnTimer = 0;
+            _startTimer += Time.deltaTime;
+            if(_startTimer >= startSpawnTime)
+            {
+                startSpawning = true;
+            }
         }
+        else
+        {
+            _spawnTimer += Time.deltaTime;
+            if (_spawnTimer >= spawnRate)
+            {
+                GameObject enemy = Instantiate(_enemyToSpawn, this.transform.position, Quaternion.Euler(_target.position - transform.position)) as GameObject;
+                enemy.GetComponent<EnemyScript>().SetTarget(_target);
+                _spawnTimer = 0;
+            }
+        }
+
+        
     }
 }
