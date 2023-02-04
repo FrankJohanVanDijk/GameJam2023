@@ -51,7 +51,7 @@ public class TrackingSystem : MonoBehaviour
     {
         if(other.CompareTag("Enemy"))
         {
-            Debug.Log("Hoi");
+            //Debug.Log("Hoi");
             targetList.Add(other.gameObject);
             EnemyScript enemyScript = other.gameObject.GetComponent<EnemyScript>();
             enemyScript.AddListener(DestroyEnemy);
