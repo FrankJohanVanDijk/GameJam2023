@@ -13,8 +13,9 @@ public class PlayerScript : MonoBehaviour
     public float upDownSpeed = 0;
     private bool _moving = false;
 
-    private Rigidbody _rigidbody;
 
+    private Rigidbody _rigidbody;
+    Vector3 movement;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,9 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        movement.z = Input.GetAxis("Horizontal");
+        movement.x = -Input.GetAxis("Vertical");
+
         if (Input.GetKeyDown(KeyCode.A))
         {
             leftRightSpeed = -1;
@@ -81,6 +85,12 @@ public class PlayerScript : MonoBehaviour
             _currentSpeed = 0 + (playerSpeed - 0) * _lerpValue;
         }
 
-        _rigidbody.velocity = new Vector3(_currentSpeed * upDownSpeed, 0, _currentSpeed * leftRightSpeed);
+        //_rigidbody.velocity = new Vector3(_currentSpeed * upDownSpeed, 0, _currentSpeed * leftRightSpeed);
+
+    }
+
+    private void FixedUpdate()
+    {
+        _rigidbody.MovePosition(_rigidbody.position + movement * playerSpeed * Time.fixedDeltaTime);
     }
 }

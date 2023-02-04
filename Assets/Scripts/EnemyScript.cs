@@ -13,6 +13,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField]
     private Transform _target;
 
+    [SerializeField]
     private int _moveSpeed = 4;
 
     // Start is called before the first frame update

@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.RotateAround(_target.position, axis, 15 * Time.deltaTime);
+        transform.RotateAround(_target.position, axis, _rotationSpeed * Time.deltaTime);
 
         _spawnTimer += Time.deltaTime;
         if (_spawnTimer >= spawnRate)

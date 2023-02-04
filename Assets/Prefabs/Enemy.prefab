@@ -112,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 10
   _target: {fileID: 0}
+  _moveSpeed: 2
 --- !u!54 &5644144248450439109
 Rigidbody:
   m_ObjectHideFlags: 0
