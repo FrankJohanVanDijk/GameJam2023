@@ -15,10 +15,12 @@ public class ShootingSystem : MonoBehaviour
     List<GameObject> _lastProjectiles = new List<GameObject>();
     float _fireTimer = 0.0f;
 
+    private WaterTank _waterTank;
+    public float waterCostBullet = 5;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _waterTank = GetComponent<WaterTank>();
     }
 
     // Update is called once per frame
@@ -71,13 +73,13 @@ public class ShootingSystem : MonoBehaviour
 
         //_lastProjectiles.Clear();
 
-        for(int i =0; i < projectileSpawns.Count; i++)
+        for(int i = 0; i < projectileSpawns.Count; i++)
         {
             if(projectileSpawns[i])
             {
                 GameObject proj = Instantiate(projectile, projectileSpawns[i].transform.position, Quaternion.Euler(projectileSpawns[i].transform.forward)) as GameObject;
                 proj.GetComponent<BaseProjectile>().FireProjectile(projectileSpawns[i], target, damage);
-
+                _waterTank.LoseWater(waterCostBullet);
                 //_lastProjectiles.Add(proj);
             }
         }

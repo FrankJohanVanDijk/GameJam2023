@@ -32,4 +32,9 @@ public class WaterTank : MonoBehaviour
     {
         curWaterAmount += pAmount;
     }
+
+    public float GetWaterAmount()
+    {
+        return curWaterAmount;
+    }
 }

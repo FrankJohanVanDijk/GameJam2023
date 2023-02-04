@@ -43,4 +43,12 @@ public class TrackingSystem : MonoBehaviour
 
         return true;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Enemy"))
+        {
+
+        }
+    }
 }
