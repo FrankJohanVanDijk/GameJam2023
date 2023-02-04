@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Player
   m_Shader: {fileID: 4800000, guid: e88aeddd2ef1f934d805981244872e27, type: 3}
-  m_ShaderKeywords: _HALFTONESHAPE_DOT _METALLICSPECGLOSSMAP _NORMALMAP
+  m_ShaderKeywords: _HALFTONESHAPE_DOT _METALLICSPECGLOSSMAP _NORMALMAP _OUTLINE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -126,9 +126,9 @@ Material:
     - _Glossiness: 32
     - _GlossinessSource: 0
     - _GlossyReflections: 0
-    - _HairSpecExponent: 128
-    - _HairSpecNoiseStrength: 1
-    - _HairSpecularSize: 0.8
+    - _HairSpecExponent: 2
+    - _HairSpecNoiseStrength: 0
+    - _HairSpecularSize: 0.1
     - _HairSpecularSmoothness: 0.1
     - _HalfToneDiffuseStep: 0
     - _HalfToneEnabled: 0
@@ -149,9 +149,9 @@ Material:
     - _NoiseScale: 1
     - _NoiseStrength: 0.1
     - _OcclusionStrength: 1
-    - _OutlineEnabled: 0
+    - _OutlineEnabled: 1
     - _OutlineMode: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 2.72
     - _OverrideShadowColor: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -167,7 +167,7 @@ Material:
     - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
     - _SpecClipMaskScale: 1
-    - _SpecShadowStrength: 1
+    - _SpecShadowStrength: 0
     - _SpecSource: 0
     - _SpecularClipStrength: 0
     - _SpecularFalloff: 0.5
@@ -191,13 +191,13 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FaceFrontDirection: {r: 0, g: 0, b: 1, a: 0}
     - _FaceRightDirection: {r: 1, g: 0, b: 0, a: 0}
-    - _HairSpecColor: {r: 0, g: 0, b: 0, a: 1}
+    - _HairSpecColor: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 1}
     - _HalfToneColor: {r: 0, g: 0, b: 0, a: 1}
     - _HatchingColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0.6143759, g: 0.9056604, b: 0.47333568, a: 1}
     - _OutlineDistancFade: {r: -25, g: 50, b: 0, a: 0}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
+    - _ShadowColor: {r: 0.21698105, g: 0.076557465, b: 0.076557465, a: 0}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
     - _SpecularColor: {r: 0.9, g: 0.9, b: 0.9, a: 1}
     - _SpherizeNormalOrigin: {r: 0, g: 0, b: 0, a: 0}
