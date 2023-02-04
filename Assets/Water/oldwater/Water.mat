@@ -49,7 +49,7 @@ Material:
     - Vector1_ae17561c2915480180777b80cc2ac09e: 0.9
     - _Depth: -2.54
     - _Displacement: 20
-    - _NormalStrenght: 0.26
+    - _NormalStrenght: 1
     - _NormalTiling: 1.5
     - _NormalTiling2: 1
     - _Smoothness: 0.5
