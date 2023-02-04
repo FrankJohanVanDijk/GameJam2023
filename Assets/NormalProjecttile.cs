@@ -7,11 +7,18 @@ public class NormalProjecttile : BaseProjectile
     Vector3 _direction;
     bool _fired;
 
+    float timeAlive = 0;
+
     private void Update()
     {
         if (_fired)
         {
             transform.position += _direction * speed * Time.deltaTime;
+            timeAlive += Time.deltaTime;
+            if(timeAlive > 5)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 
