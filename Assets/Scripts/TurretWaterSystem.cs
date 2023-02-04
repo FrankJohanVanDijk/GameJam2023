@@ -15,6 +15,9 @@ public class TurretWaterSystem : MonoBehaviour
 
     bool _playerInRange = false;
     public float waterMultiplier = 5;
+
+    int _index = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +58,11 @@ public class TurretWaterSystem : MonoBehaviour
         }
     }
 
+    public void SetIndex(int pIndex)
+    {
+        _index = pIndex;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject == _player)
@@ -69,5 +77,11 @@ public class TurretWaterSystem : MonoBehaviour
         {
             _playerInRange = false;
         }
+    }
+
+    private void OnMouseDown()
+    {
+        Debug.Log("INDEX: " + _index);
+        SuperGameManager.instance.OpenMenu(_index);
     }
 }

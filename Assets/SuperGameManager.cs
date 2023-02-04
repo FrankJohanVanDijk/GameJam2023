@@ -7,14 +7,16 @@ using UnityEngine.Events;
 public class SuperGameManager : Singleton<SuperGameManager>
 {
     public PlayerScript playerScript;
-    public RectTransform mainUpgradeScreen;
-    public List<RectTransform> turretListScreens;
+    public GameObject mainUpgradeScreen;
+    public List<GameObject> turretListScreens;
 
-    private RectTransform currentScreen;
+    private GameObject currentScreen;
 
     public UnityEvent<int> upgradebleClicked;
 
     public UnityEvent menuClosed;
+
+    public Canvas MainCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -24,9 +26,10 @@ public class SuperGameManager : Singleton<SuperGameManager>
         menuClosed.AddListener(CloseMenu);
     }
 
-    public void RegisterUpgradeScreens()
+    public void RegisterUpgradeScreens(List<GameObject> gameObjects)
     {
-
+        gameObjects.Insert(0, mainUpgradeScreen);
+        turretListScreens = gameObjects;
     }
 
     public void OpenMenu(int pIndex)
@@ -37,7 +40,7 @@ public class SuperGameManager : Singleton<SuperGameManager>
         }
         else
         {
-            currentScreen = turretListScreens[pIndex - 1];
+            currentScreen = turretListScreens[pIndex];
         }
 
         currentScreen.gameObject.SetActive(true);

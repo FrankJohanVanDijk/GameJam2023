@@ -51,6 +51,12 @@ public class EnemyScript : MonoBehaviour
                 _enemyDead.Invoke(this.gameObject);
             }
         }
+        else if(collision.gameObject.CompareTag("Finish"))
+        {
+            PlantHealth plantHealth = collision.gameObject.GetComponent<PlantHealth>();
+            plantHealth.LoseHealth(4);
+            _enemyDead.Invoke(gameObject);
+        }
     }
 
     public void SetTarget(Transform pTarget)
