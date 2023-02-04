@@ -39,7 +39,7 @@ public class TurretWaterSystem : MonoBehaviour
 
         if(_ownWaterTank.GetWaterAmount() < 1)
         {
-            Debug.Log("Disable");
+            //Debug.Log("Disable");
             //curWaterAmount = 1;
             shootingSystem.enabled = false;
             trackingSystem.enabled = false;

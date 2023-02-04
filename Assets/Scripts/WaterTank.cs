@@ -11,16 +11,23 @@ public class WaterTank : MonoBehaviour
 
     private float curWaterAmount;
 
+    [SerializeField]
+    private GameObject waterSize;
+    private float beginScale = 0.01f;
+    Vector3 waterScale;
     // Start is called before the first frame update
     void Start()
     {
         curWaterAmount = startWaterAmount;
+        beginScale = waterSize.transform.localScale.y;
+        waterScale = waterSize.transform.localScale;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        waterScale.y = Mathf.Lerp(0, beginScale, curWaterAmount / maxWaterAmount);
+        waterSize.transform.localScale = waterScale;
     }
 
     public void LoseWater(float pAmount)

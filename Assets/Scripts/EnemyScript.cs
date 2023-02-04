@@ -16,6 +16,9 @@ public class EnemyScript : MonoBehaviour
     [SerializeField]
     private int _moveSpeed = 4;
 
+    [SerializeField]
+    private GameObject _collectibleToSpawn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +46,8 @@ public class EnemyScript : MonoBehaviour
 
             if(_health < 0)
             {
+                Vector3 extraHeight = new Vector3(0, 2, 0);
+                GameObject collectible = Instantiate(_collectibleToSpawn, this.transform.position + extraHeight, Quaternion.Euler(_target.position - transform.position)) as GameObject;
                 _enemyDead.Invoke(this.gameObject);
             }
         }
