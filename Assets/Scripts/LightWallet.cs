@@ -10,10 +10,12 @@ public class LightWallet : Singleton<LightWallet>
 
     public UnityEvent walletAmountChanged;
 
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -44,6 +46,7 @@ public class LightWallet : Singleton<LightWallet>
         LightCollectible lightCollectible = collision.collider.gameObject.GetComponent<LightCollectible>();
         if(lightCollectible != null)
         {
+            audioSource.Play();
             Destroy(lightCollectible.gameObject);
             AddLight(1);
         }

@@ -83,8 +83,11 @@ public class TurretWaterSystem : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("INDEX: " + _index);
-        SuperGameManager.instance.OpenMenu(_index);
+        if(!SuperGameManager.instance.MenuIsOPen)
+        {
+            Debug.Log("INDEX: " + _index);
+            SuperGameManager.instance.OpenMenu(_index);
+        }
     }
 
     public void DoubleDamage()
