@@ -113,6 +113,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lightAmount: 0
+  walletAmountChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1752164915822295737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6141963519061562716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ef7d1b0758ac5408ee1df528794bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7143293311605229421
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,6 +452,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1451923d6b4be5459709471e2edb2e9, type: 3}
+--- !u!1 &6141963519061562716 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7412181034666830663, guid: d1451923d6b4be5459709471e2edb2e9, type: 3}
+  m_PrefabInstance: {fileID: 3738542009383042587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1966836447090015700 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2930263864659526607, guid: d1451923d6b4be5459709471e2edb2e9, type: 3}
