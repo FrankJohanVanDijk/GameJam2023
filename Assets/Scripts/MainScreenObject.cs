@@ -7,7 +7,10 @@ public class MainScreenObject : MonoBehaviour
 {
     void OnMouseDown()
     {
-        Debug.Log("HEllllllo");
-        SuperGameManager.instance.upgradebleClicked.Invoke(0);
+        if(!SuperGameManager.instance.MenuIsOPen)
+        {
+            Debug.Log("HEllllllo");
+            SuperGameManager.instance.upgradebleClicked.Invoke(0);
+        }
     }
 }

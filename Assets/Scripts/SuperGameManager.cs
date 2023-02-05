@@ -19,6 +19,8 @@ public class SuperGameManager : Singleton<SuperGameManager>
 
     public Canvas MainCanvas;
 
+    public bool MenuIsOPen = false;
+
     protected override void Awake()
     {
         base.Awake();
@@ -52,12 +54,14 @@ public class SuperGameManager : Singleton<SuperGameManager>
 
         currentScreen.gameObject.SetActive(true);
         playerScript.enabled = false;
+        MenuIsOPen = true;
     }
 
     public void CloseMenu()
     {
         currentScreen.gameObject.SetActive(false);
         playerScript.enabled = true;
+        MenuIsOPen = false;
     }
 
     // Update is called once per frame
