@@ -27,71 +27,23 @@ public class PlayerScript : MonoBehaviour
     {
         movement.z = Input.GetAxis("Horizontal");
         movement.x = -Input.GetAxis("Vertical");
+        //Look();
+    }
 
-        if (Input.GetKeyDown(KeyCode.A))
+    void Look()
+    {
+        if(movement != Vector3.zero)
         {
-            leftRightSpeed = -1;
-            _moving = true;
-        }
-        else if(Input.GetKeyDown(KeyCode.D))
-        {
-            leftRightSpeed = 1;
-            _moving = true;
-        }
-        if(Input.GetKeyDown(KeyCode.W))
-        {
-            upDownSpeed = -1;
-            _moving = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            upDownSpeed = 1;
-            _moving = true;
-        }
+            var relative = (transform.position + movement) - transform.position;
+            var rot = Quaternion.LookRotation(relative, Vector3.up);
 
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            leftRightSpeed = 0;
-            _moving = false;
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, 360 * Time.deltaTime);
         }
-        else if (Input.GetKeyUp(KeyCode.D))
-        {
-            leftRightSpeed = 0;
-            _moving = false;
-        }
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            upDownSpeed = 0;
-            _moving = false;
-        }
-        else if (Input.GetKeyUp(KeyCode.S))
-        {
-            upDownSpeed = 0;
-            _moving = false;
-        }
-
-
-        if (_moving && _lerpValue < 1)
-        {
-            timeMoving += Time.deltaTime;
-            _lerpValue = timeMoving / timeMaxSpeed;
-            _currentSpeed = 0 + (playerSpeed - 0) * _lerpValue;
-        }
-
-        if (!_moving && _lerpValue > 0)
-        {
-            timeMoving -= Time.deltaTime;
-            _lerpValue = timeMoving / timeMaxSpeed;
-            _currentSpeed = 0 + (playerSpeed - 0) * _lerpValue;
-        }
-
-        //_rigidbody.velocity = new Vector3(_currentSpeed * upDownSpeed, 0, _currentSpeed * leftRightSpeed);
-
     }
 
     private void FixedUpdate()
     {
-        _rigidbody.MovePosition(_rigidbody.position + movement * playerSpeed * Time.fixedDeltaTime);
+        _rigidbody.MovePosition(transform.position + movement * playerSpeed * Time.fixedDeltaTime);
     }
 
     public void DoublePlayerSpeed()

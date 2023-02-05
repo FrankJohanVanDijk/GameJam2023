@@ -52,9 +52,10 @@ public class WaterTank : MonoBehaviour
 
     public void DoubleTank()
     {
-        beginScale *= 2;
-        waterScale.y *= 2;
-        waterSize.transform.localScale = waterScale;
+        //beginScale *= 2;
+        //waterScale.y *= 2;
+        //waterSize.transform.localScale = waterScale;
+        curWaterAmount *= 2;
         maxWaterAmount *= 2;
     }
 }
