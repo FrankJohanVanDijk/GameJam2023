@@ -19,6 +19,12 @@ public class SuperGameManager : Singleton<SuperGameManager>
 
     public Canvas MainCanvas;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        Time.timeScale = 0;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +64,11 @@ public class SuperGameManager : Singleton<SuperGameManager>
     void Update()
     {
         
+    }
+
+    public void StartGame()
+    {
+        Time.timeScale = 1;
     }
 
     public void PauseGame()
