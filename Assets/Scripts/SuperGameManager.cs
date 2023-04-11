@@ -85,4 +85,9 @@ public class SuperGameManager : Singleton<SuperGameManager>
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
