@@ -15,9 +15,16 @@ public class SuperGameManager : Singleton<SuperGameManager>
 
     public UnityEvent<int> upgradebleClicked;
 
-    public UnityEvent menuClosed;
+    //public UnityEvent menuClosed;
 
-    public Canvas MainCanvas;
+    [SerializeField]
+    private UnityEvent _gameStartedEvent;
+    [SerializeField]
+    private UnityEvent _gameFinishedEvent;
+    [SerializeField]
+    private UnityEvent _gameRestartEvent;
+
+    //public Canvas MainCanvas;
 
     public bool MenuIsOPen = false;
 
@@ -32,7 +39,7 @@ public class SuperGameManager : Singleton<SuperGameManager>
     {
         mainUpgradeScreen.gameObject.SetActive(false);
         upgradebleClicked.AddListener(OpenMenu);
-        menuClosed.AddListener(CloseMenu);
+        //menuClosed.AddListener(CloseMenu);
     }
 
     public void RegisterUpgradeScreens(List<GameObject> gameObjects)
@@ -73,21 +80,21 @@ public class SuperGameManager : Singleton<SuperGameManager>
     public void StartGame()
     {
         Time.timeScale = 1;
+        _gameStartedEvent.Invoke();
     }
 
     public void PauseGame()
     {
         Time.timeScale = 0;
+        _gameFinishedEvent.Invoke();
+        MenuIsOPen = true;
     }
 
     public void RestartGame()
     {
         Time.timeScale = 1;
+        _gameRestartEvent.Invoke();
+        MenuIsOPen = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void GoToMainMenu()
-    {
-        SceneManager.LoadScene(0);
     }
 }

@@ -13,8 +13,8 @@ public class PlantHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthChanged = new UnityEvent();
-        healthIsZero = new UnityEvent();
+        //healthChanged = new UnityEvent();
+        //healthIsZero = new UnityEvent();
     }
 
     // Update is called once per frame

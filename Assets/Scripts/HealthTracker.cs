@@ -8,6 +8,7 @@ public class HealthTracker : MonoBehaviour
     public PlantHealth plant;
     private TextMeshProUGUI _text;
     public GameObject gameOverScreen;
+    public GameObject mainCanvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +23,14 @@ public class HealthTracker : MonoBehaviour
         //lig
     }
 
-    void ChangeText()
+    public void ChangeText()
     {
         _text.text = plant.GetHealth().ToString();
     }
 
-    void GetGameOver()
+    public void GetGameOver()
     {
+        mainCanvas.SetActive(false);
         gameOverScreen.SetActive(true);
         SuperGameManager.instance.PauseGame();
     }
